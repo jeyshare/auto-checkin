@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Auto Check-In Skemaraja</title>
+    <script>
+      function autoFill() {
+        try {
+          document.querySelector('input[name="nip"]').value = "199909112025051002";
+          document.querySelector('input[name="password"]').value = "@Dwijunn110999";
+
+          const select = document.querySelector('select[name="status_wfh"]');
+          if (select) {
+            select.value = "2";
+            select.dispatchEvent(new Event("change"));
+          }
+
+          const shift1 = document.querySelector('#shift_1');
+          if (shift1) shift1.checked = true;
+
+          const checkInBtn = document.getElementById("btnSubmit");
+          if (checkInBtn) checkInBtn.click();
+        } catch (e) {
+          console.error("Error:", e.message);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+          autoFill();
+        }, 500); // Eksekusi 0.5 detik setelah halaman siap
+      });
+    </script>
+  </head>
+  <body style="margin:0;padding:0;">
+    <iframe src="https://skemaraja.dephub.go.id/" width="100%" height="100%" style="border:none; position:fixed; top:0; bottom:0; left:0; right:0;"></iframe>
+  </body>
+</html>
